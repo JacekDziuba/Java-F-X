@@ -1,21 +1,105 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Button?>
 
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-          gridLinesVisible="true">
+<StackPane fx:controller="sample.Controller"
+           xmlns:fx="http://javafx.com/fxml">
+
+    <Label text="The label text" style="-fx-background-color: green"/>
+        <Button text="Button One" style="-fx-background-color: red"/>
+    <Label text="The second label text" style="-fx-background-color: blue"/>
+
+</StackPane>
+
+<!--<TilePane fx:controller="sample.Controller"-->
+          <!--xmlns:fx="http://javafx.com/fxml">-->
+    <!--<Button text="Button One" prefWidth="100"/>-->
+    <!--<Button text="Button Two" prefWidth="100"/>-->
+    <!--<Button text="Button Three" prefWidth="100"/>-->
+    <!--<Button text="Button Four" prefWidth="100"/>-->
+    <!--<Button text="Button Five" prefWidth="100"/>-->
+    <!--<Button text="Button Six" prefWidth="100"/>-->
+    <!--<Button text="Button Seven" prefWidth="100"/>-->
+    <!--<Button text="Button Eight" prefWidth="100"/>-->
+    <!--<Button text="Button Nine" prefWidth="100"/>-->
+    <!--<Button text="Button Ten" prefWidth="100"/>-->
+<!--</TilePane>-->
+
+<!--<BorderPane fx:controller="sample.Controller"-->
+            <!--xmlns:fx="http://javafx.com/fxml">-->
+    <!--<top>-->
+        <!--<Label text="This label is in the top position" alignment="center"-->
+               <!--BorderPane.alignment="center"-->
+               <!--style="-fx-border-color: blue; -fx-border-width: 3; -fx-border-style: dashed"/>-->
+    <!--</top>-->
+
+    <!--<center>-->
+        <!--<Label text="This label is in the center position and has really loooooooooooooooooooooooooooooong text"/>-->
+    <!--</center>-->
+
+    <!--<left>-->
+
+        <!--<Label text="This label is in the left position" alignment="center"/>-->
+    <!--</left>-->
+
+    <!--<right>-->
+        <!--<Label text="This label is in the right position"/>-->
+    <!--</right>-->
+
+    <!--<bottom>-->
+        <!--<HBox spacing="10" alignment="bottom_right">-->
+            <!--<padding>-->
+                <!--<Insets bottom="10" right="10"/>-->
+            <!--</padding>-->
+            <!--<Button text="Okay" prefWidth="90"/>-->
+            <!--<Button text="Cancel" prefWidth="90"/>-->
+            <!--<Button text="Help" prefWidth="90"/>-->
+        <!--</HBox>-->
+    <!--</bottom>-->
+    <!---->
+<!--</BorderPane>-->
+
+<!--<GridPane alignment="center"-->
+          <!--gridLinesVisible="true"-->
+          <!--hgap="10"-->
+          <!--vgap="10"-->
+          <!--xmlns:fx="http://javafx.com/fxml/1"-->
+          <!--xmlns="http://javafx.com/javafx/8.0.172-ea"-->
+          <!--fx:controller="sample.Controller">-->
+
+    <!--<padding>-->
+        <!--<Insets left="10" right="10"/>-->
+    <!--</padding>-->
+
     <!--<columnConstraints>-->
-    <!--<ColumnConstraints percentWidth="50.0"/>-->
-    <!--<ColumnConstraints percentWidth="50.0"/>-->
+        <!--<ColumnConstraints percentWidth="50.0"/>-->
+        <!--<ColumnConstraints percentWidth="50.0"/>-->
     <!--</columnConstraints>-->
 
-    <Button text="Button One" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <Button text="Button Two" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-    <Button text="Button Three" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <Button text="Really Long Button Four more text more text more text more text more text more text " GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-    <Button text="Button Five" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-</GridPane>
+    <!--<Button text="One" textFill="chocolate" GridPane.columnIndex="0" GridPane.rowIndex="0"/>-->
+    <!--<Button text="Two" textFill="blueviolet" GridPane.columnIndex="1" GridPane.rowIndex="0"/>-->
+    <!--<Button text="Three" textFill="blue" GridPane.columnIndex="0" GridPane.rowIndex="1"/>-->
+    <!--<Button text="Four" textFill="aqua" GridPane.columnIndex="1" GridPane.rowIndex="1"/>-->
+
+    <!--<rowConstraints>-->
+        <!--<RowConstraints/>-->
+        <!--<RowConstraints/>-->
+    <!--</rowConstraints>-->
+
+<!--</GridPane>-->
+
+<!--<HBox fx:controller="sample.Controller"-->
+      <!--xmlns:fx="http://javafx.com/fxml" alignment="bottom_right"-->
+      <!--style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+      <!--spacing="10">-->
+<!--<padding>-->
+    <!--<Insets bottom="10" right="10"/>-->
+<!--</padding>-->
+
+<!--<Button text="Okay" prefWidth="90"/>-->
+<!--<Button text="Cancel" prefWidth="90"/>-->
+<!--<Button text="Help" prefWidth="90"/>-->
+
+<!--</HBox>-->
