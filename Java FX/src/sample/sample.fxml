@@ -25,6 +25,22 @@
         </graphic>
     </Label>
 
+    <Button text="Just for test" GridPane.rowIndex="1" GridPane.columnIndex="0" >
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Find24.gif" />
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Label GridPane.rowIndex="1" GridPane.columnIndex="1" text="Labelling" >
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Import24.gif" />
+            </ImageView>
+        </graphic>
+    </Label>
+
 </GridPane>
 
 <!--<TilePane fx:controller="sample.Controller"-->
