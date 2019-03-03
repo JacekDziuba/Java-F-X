@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <GridPane xmlns:fx="http://javafx.com/fxml"
           fx:controller="sample.Controller" alignment="center" hgap="10" vgap="10">
 
-    <TextField GridPane.rowIndex="0"
+    <TextField fx:id="nameField"
+               GridPane.rowIndex="0"
                GridPane.columnIndex="0"
-               fx:id="nameField"/>
+               onKeyReleased="#handleKeyReleased"/>
 
-    <Button GridPane.rowIndex="1"
-            GridPane.columnIndex="0"
+    <Label text="Thix text will go to the console"
+           GridPane.rowIndex="0"
+           GridPane.columnIndex="1" >
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Information24.gif"/>
+            </ImageView>
+        </graphic>
+    </Label>
+
+    <Button fx:id="helloButton"
             text="Say hello!"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="0"
             onAction="#onButtonClicked">
         <graphic>
             <ImageView>
                 <Image url="@/toolbarButtonGraphics/media/Play24.gif"/>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <Button fx:id="byeButton"
+            text="Say Bye"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="1"
+            onAction="#onButtonClicked">
+        <graphic>
+            <ImageView>
+                <Image url="@/toolbarButtonGraphics/general/Open24.gif"/>
             </ImageView>
         </graphic>
     </Button>
