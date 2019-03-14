@@ -23,25 +23,24 @@ public class ToDoData {
     private List<ToDoItem> toDoItems;
     private DateTimeFormatter formatter;
 
-    public static ToDoData getInstance() {
-        return instance;
-    }
-
     // == private constructor ==
-
     private ToDoData() {
-        formatter.equals(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
 
     // == getters and setters
+
+    public static ToDoData getInstance() {
+        return instance;
+    }
 
     public List<ToDoItem> getToDoItems() {
         return toDoItems;
     }
 
-    public void setToDoItems(List<ToDoItem> toDoItems) {
-        this.toDoItems = toDoItems;
-    }
+//    public void setToDoItems(List<ToDoItem> toDoItems) {
+//        this.toDoItems = toDoItems;
+//    }
 
     // == methods ==
 

@@ -1,6 +1,4 @@
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -8,6 +6,18 @@
 
 <BorderPane fx:controller="jacek.solutions.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New..."/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit"/>
+                </items>
+            </Menu>
+        </MenuBar>
+    </top>
 
     <left>
         <ListView fx:id="toDoItemsView">
