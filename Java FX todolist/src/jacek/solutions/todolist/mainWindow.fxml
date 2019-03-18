@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="jacek.solutions.todolist.Controller"
+<BorderPane fx:id="mainBorderPane" fx:controller="jacek.solutions.todolist.Controller"
             xmlns:fx="http://javafx.com/fxml">
 
     <top>
         <MenuBar>
             <Menu text="File">
                 <items>
-                    <MenuItem text="New..."/>
+                    <MenuItem text="New..." onAction="#showNewItemDialog"/>
                     <SeparatorMenuItem/>
                     <MenuItem text="Exit"/>
                 </items>

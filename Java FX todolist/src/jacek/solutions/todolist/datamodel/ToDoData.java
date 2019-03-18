@@ -24,6 +24,7 @@ public class ToDoData {
     private DateTimeFormatter formatter;
 
     // == private constructor ==
+
     private ToDoData() {
         formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     }
@@ -37,10 +38,6 @@ public class ToDoData {
     public List<ToDoItem> getToDoItems() {
         return toDoItems;
     }
-
-//    public void setToDoItems(List<ToDoItem> toDoItems) {
-//        this.toDoItems = toDoItems;
-//    }
 
     // == methods ==
 
@@ -93,5 +90,9 @@ public class ToDoData {
                 writer.close();
             }
         }
+    }
+
+    public void addToDoItem(ToDoItem item) {
+        toDoItems.add(item);
     }
 }
