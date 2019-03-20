@@ -11,6 +11,10 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
@@ -19,15 +23,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
     @Override
-    public void stop() throws Exception {
+    public void init() throws Exception {
         try {
-            ToDoData.getInstance().storeToDoItems();
+            ToDoData.getInstance().loadToDoItems();
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -35,9 +34,9 @@ public class Main extends Application {
     }
 
     @Override
-    public void init() throws Exception {
+    public void stop() throws Exception {
         try {
-            ToDoData.getInstance().loadToDoItems();
+            ToDoData.getInstance().storeToDoItems();
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
