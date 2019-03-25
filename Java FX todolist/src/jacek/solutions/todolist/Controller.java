@@ -45,7 +45,7 @@ public class Controller {
             }
         });
 
-        toDoItemsView.getItems().setAll(ToDoData.getInstance().getToDoItems());
+        toDoItemsView.setItems(ToDoData.getInstance().getToDoItems());
         toDoItemsView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         toDoItemsView.getSelectionModel().selectFirst();
     }
@@ -76,13 +76,7 @@ public class Controller {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             ToDoItem newItem = controller.processResults();
-            // the below line updates the listView after a new item is added
-            toDoItemsView.getItems().setAll(ToDoData.getInstance().getToDoItems());
-            // the below line selects automatically the added item
             toDoItemsView.getSelectionModel().select(newItem);
-            System.out.println("OK pressed");
-        } else {
-            System.out.println("Cancel pressed");
         }
     }
 

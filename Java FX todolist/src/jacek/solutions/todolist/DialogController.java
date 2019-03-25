@@ -22,7 +22,7 @@ public class DialogController {
     @FXML
     private DatePicker deadlinePicker;
 
-    // == method ==
+    // == methods ==
 
     public ToDoItem processResults() {
         String shortDescription = shortDescriptionField.getText().trim();
