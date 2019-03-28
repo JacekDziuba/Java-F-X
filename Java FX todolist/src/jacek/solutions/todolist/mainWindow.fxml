@@ -12,7 +12,7 @@
             <Menu text="File">
                 <items>
                     <MenuItem text="New" onAction="#showNewItemDialog"/>
-                    <MenuItem text="Edit" />
+                    <MenuItem text="Edit" onAction="#editItemDialog"/>
                     <MenuItem text="Delete" />
                     <SeparatorMenuItem/>
                     <MenuItem text="Exit"/>

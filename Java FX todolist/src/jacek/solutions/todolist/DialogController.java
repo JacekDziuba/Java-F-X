@@ -22,7 +22,17 @@ public class DialogController {
     @FXML
     private DatePicker deadlinePicker;
 
-    // == methods ==
+    private ToDoItem item;
+
+    public ToDoItem getItem() {
+        return item;
+    }
+
+    public void setItem(ToDoItem item) {
+        this.item = item;
+    }
+
+// == methods ==
 
     public ToDoItem processResults() {
         String shortDescription = shortDescriptionField.getText().trim();
@@ -34,4 +44,9 @@ public class DialogController {
         return newItem;
     }
 
+    public void processEditResults(ToDoItem item) {
+        item.setShortDescription(shortDescriptionField.getText());
+        item.setDetails(detailsArea.getText());
+        item.setDeadline(deadlinePicker.getValue());
+    }
 }

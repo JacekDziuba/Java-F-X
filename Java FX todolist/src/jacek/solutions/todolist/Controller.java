@@ -76,18 +76,28 @@ public class Controller {
         });
     }
 
-    // creating a new dialog drop down.
     @FXML
     public void showNewItemDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
         dialog.setTitle("Add new ToDoItem");
         dialog.setHeaderText("Use this dialog to add a new ToDoItem");
-        // loading the scene
+
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
+
         try {
+            fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
+
             dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                DialogController controller = fxmlLoader.getController();
+                ToDoItem newItem = controller.processResults();
+                toDoItemsView.getSelectionModel().select(newItem);
+            }
 
         } catch (IOException e) {
             System.out.println("Couldn't load the dialog");
@@ -95,15 +105,41 @@ public class Controller {
             return;
         }
 
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+    }
 
-        Optional<ButtonType> result = dialog.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            DialogController controller = fxmlLoader.getController();
-            ToDoItem newItem = controller.processResults();
-            toDoItemsView.getSelectionModel().select(newItem);
+    @FXML
+    public void editItemDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Edit ToDoItem");
+        dialog.setHeaderText("Use this dialog to edit ToDoItem");
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+
+        try {
+            fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
+
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+            DialogController editController = fxmlLoader.getController();
+            ToDoItem item = toDoItemsView.getSelectionModel().getSelectedItem();
+            editController.setItem(item);
+
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                editController.processEditResults(item);
+                toDoItemsView.getSelectionModel().select(item);
+                toDoItemsView.refresh();
+            }
+
+        } catch (IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
         }
+
     }
 
     @FXML
