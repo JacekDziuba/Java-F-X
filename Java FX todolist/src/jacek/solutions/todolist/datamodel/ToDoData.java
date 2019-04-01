@@ -95,4 +95,8 @@ public class ToDoData {
     public void addToDoItem(ToDoItem item) {
         toDoItems.add(item);
     }
+
+    public void deleteTodoItem(ToDoItem item) {
+        toDoItems.remove(item);
+    }
 }
