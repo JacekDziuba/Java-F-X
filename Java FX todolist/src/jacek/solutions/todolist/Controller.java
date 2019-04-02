@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
@@ -171,11 +173,22 @@ public class Controller {
     }
 
     @FXML
+    public void handleDeleteKey(KeyEvent keyEvent) {
+        ToDoItem selectedItem = toDoItemsView.getSelectionModel().getSelectedItem();
+        if(selectedItem != null) {
+            if(keyEvent.getCode().equals(KeyCode.DELETE)) {
+                deleteItem(selectedItem);
+            }
+        }
+    }
+
+    @FXML
     public void handleClickListView() {
         ToDoItem item = toDoItemsView.getSelectionModel().getSelectedItem();
         itemDetailsTextArea.setText(item.getDetails());
         deadlineLabel.setText(item.getDeadline().toString());
     }
+
 
     private void deleteItem(ToDoItem item) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -188,5 +201,6 @@ public class Controller {
             ToDoData.getInstance().deleteTodoItem(item);
         }
     }
+
 
 }

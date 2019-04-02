@@ -20,9 +20,7 @@
     </top>
 
     <left>
-        <ListView fx:id="toDoItemsView">
-
-        </ListView>
+        <ListView fx:id="toDoItemsView" onKeyPressed="#handleDeleteKey"/>
     </left>
 
     <center>
@@ -31,7 +29,7 @@
             <HBox>
                 <Label text="Due: " style="-fx-background-color: white">
                     <font>
-                        <Font name="Times New Roman bold" size="20" />
+                        <Font name="Times New Roman bold" size="20"/>
                     </font>
                 </Label>
                 <Label fx:id="deadlineLabel" style="-fx-background-color: white">
