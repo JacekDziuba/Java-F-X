@@ -198,8 +198,7 @@ public class Controller {
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 editController.processEditResults(item);
-                toDoItemsView.getSelectionModel().select(item);
-                toDoItemsView.refresh();
+                toDoItemsView.getSelectionModel().selectFirst();
             }
 
         } catch (IOException e) {

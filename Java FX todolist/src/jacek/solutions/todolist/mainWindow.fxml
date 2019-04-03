@@ -34,6 +34,16 @@
                             <Tooltip text="Button Down: Show Today's items only. Button Up: Show all items"/>
                         </tooltip>
                     </ToggleButton>
+                    <Button onAction="#handleExit">
+                        <tooltip>
+                            <Tooltip text="Exit"/>
+                        </tooltip>
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/media/Pause24.gif"/>
+                            </ImageView>
+                        </graphic>
+                    </Button>
                 </HBox>
             </ToolBar>
         </VBox>
