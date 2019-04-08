@@ -1,11 +1,36 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TableView?>
 
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+
+<?import javafx.scene.control.TableColumn?>
 <BorderPane fx:controller="sample.Controller"
             xmlns:fx="http://javafx.com/fxml">
 
-    <TableView>
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="New Contact"/>
+                <MenuItem text="Edit Contact"/>
+                <MenuItem text="Delete Contact"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Exit"/>
+            </Menu>
+        </MenuBar>
+    </top>
 
-    </TableView>
+    <center>
+        <TableView>
+            <columns>
+                <TableColumn text="First Name" prefWidth="150"/>
+                <TableColumn text="Last Name" prefWidth="150"/>
+                <TableColumn text="Phone Number" prefWidth="150"/>
+                <TableColumn text="Notes" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
 
 </BorderPane>
