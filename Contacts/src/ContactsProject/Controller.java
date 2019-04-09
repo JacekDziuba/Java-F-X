@@ -1,4 +1,4 @@
-package sample;
+package ContactsProject;
 
 public class Controller {
 }
