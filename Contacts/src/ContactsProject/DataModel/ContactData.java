@@ -33,6 +33,18 @@ public class ContactData {
 
     // == methods ==
 
+    public ObservableList<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void addContact(Contact item) {
+        contacts.add(item);
+    }
+
+    public void removeContact(Contact item) {
+        contacts.remove(item);
+    }
+
     public void loadContacts() {
         try {
             // First, create a new XMLInputFactory

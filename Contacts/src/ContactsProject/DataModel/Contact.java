@@ -6,24 +6,24 @@ public class Contact {
 
     // == fields ==
 
-    private SimpleStringProperty firstName;
-    private SimpleStringProperty lastName;
-    private SimpleStringProperty phoneNumber;
-    private SimpleStringProperty notes;
+    private final SimpleStringProperty firstName = new SimpleStringProperty();
+    private final SimpleStringProperty lastName = new SimpleStringProperty();
+    private final SimpleStringProperty phoneNumber = new SimpleStringProperty();
+    private final SimpleStringProperty notes = new SimpleStringProperty();
 
     // == constructors ==
 
     public Contact() {
     }
 
-    public Contact(SimpleStringProperty firstName, SimpleStringProperty lastName, SimpleStringProperty phoneNumber, SimpleStringProperty note) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.notes = note;
+    public Contact(String firstName, String lastName, String phoneNumber, String notes) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPhoneNumber(phoneNumber);
+        setNotes(notes);
     }
 
-    // == getters and setters ==
+    // == getters and setters
 
     public String getFirstName() {
         return firstName.get();
