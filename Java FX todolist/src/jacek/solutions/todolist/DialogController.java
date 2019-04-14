@@ -32,7 +32,7 @@ public class DialogController {
         this.item = item;
     }
 
-// == methods ==
+    // == methods ==
 
     public ToDoItem processResults() {
         String shortDescription = shortDescriptionField.getText().trim();
