@@ -1,6 +1,9 @@
 package ContactsProject;
 
 import ContactsProject.DataModel.Contact;
+import ContactsProject.DataModel.ContactData;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
@@ -21,16 +24,15 @@ public class Controller {
     @FXML
     private BorderPane mainBorderPane;
 
+    private ContactData data;
+
     // == methods ==
 
     public void initialize() {
 
-        Contact contact = new Contact("Jim", "Beam", "100", "Note");
-        Contact contact2 = new Contact("Jim", "Beam", "100", "Note");
-        Contact contact3 = new Contact("Jim", "Beam", "100", "Note");
-        Contact contact4 = new Contact("Jim", "Beam", "100", "Note");
-        contactsTable.getItems().addAll(contact, contact2, contact3, contact4);
-
+        data = new ContactData();
+        data.loadContacts();
+        contactsTable.setItems(data.getContacts());
     }
 
     @FXML
@@ -53,7 +55,8 @@ public class Controller {
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 DialogController controller = fxmlLoader.getController();
                 Contact newContact = controller.processResults();
-                contactsTable.getItems().add(newContact);
+                data.addContact(newContact);
+                data.saveContacts();
             }
 
         } catch (IOException e) {
@@ -63,4 +66,7 @@ public class Controller {
         }
     }
 
+    public void handleExit() {
+        Platform.exit();
+    }
 }

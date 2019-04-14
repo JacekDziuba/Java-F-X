@@ -19,7 +19,7 @@
                 <MenuItem text="Edit Contact"/>
                 <MenuItem text="Delete Contact"/>
                 <SeparatorMenuItem/>
-                <MenuItem text="Exit"/>
+                <MenuItem text="Exit" onAction="#handleExit"/>
             </Menu>
         </MenuBar>
     </top>
@@ -50,11 +50,6 @@
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
-<!--                <items>-->
-<!--                    <FXCollections fx:factory="observableArrayList">-->
-<!--                        <Contact firstName="a" lastName="b" phoneNumber="c" notes="d"/>-->
-<!--                    </FXCollections>-->
-<!--                </items>-->
             </TableView>
         </VBox>
     </center>

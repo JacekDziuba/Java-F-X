@@ -26,11 +26,11 @@ public class Contact {
     // == getters and setters
 
     public String getFirstName() {
-        return firstName.get();
+        return this.firstName.get();
     }
 
     public SimpleStringProperty firstNameProperty() {
-        return firstName;
+        return this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -38,11 +38,11 @@ public class Contact {
     }
 
     public String getLastName() {
-        return lastName.get();
+        return this.lastName.get();
     }
 
     public SimpleStringProperty lastNameProperty() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -50,11 +50,11 @@ public class Contact {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber.get();
+        return this.phoneNumber.get();
     }
 
     public SimpleStringProperty phoneNumberProperty() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -62,14 +62,19 @@ public class Contact {
     }
 
     public String getNotes() {
-        return notes.get();
+        return this.notes.get();
     }
 
     public SimpleStringProperty notesProperty() {
-        return notes;
+        return this.notes;
     }
 
     public void setNotes(String notes) {
         this.notes.set(notes);
     }
+
+    public String toString() {
+        return "Contact{firstName=" + this.firstName + ", lastName=" + this.lastName + ", phoneNumber=" + this.phoneNumber + ", notes=" + this.notes + '}';
+    }
+
 }
