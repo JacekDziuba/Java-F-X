@@ -39,7 +39,14 @@ public class DialogController {
         return contact;
     }
 
-    public void editResults(Contact contact) {
+    public void editContact(Contact contact) {
+        firstNameField.setText(contact.getFirstName());
+        lastNameField.setText(contact.getLastName());
+        phoneNumberField.setText(contact.getPhoneNumber());
+        notesArea.setText(contact.getNotes());
+    }
+
+    public void updateContact(Contact contact) {
         contact.setFirstName(firstNameField.getText());
         contact.setLastName(lastNameField.getText());
         contact.setPhoneNumber(phoneNumberField.getText());

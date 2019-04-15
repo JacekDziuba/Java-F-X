@@ -6,10 +6,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -30,12 +27,9 @@ public class Controller {
     // == methods ==
 
     public void initialize() {
-
         data = new ContactData();
         data.loadContacts();
         contactsTable.setItems(data.getContacts());
-
-        contactsTable.getSelectionModel().selectFirst();
     }
 
     @FXML
@@ -72,6 +66,16 @@ public class Controller {
 
     @FXML
     public void editContactDialog() {
+        Contact editedContact = contactsTable.getSelectionModel().getSelectedItem();
+        if (editedContact == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No contact selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select a contact to edit");
+            alert.showAndWait();
+            return;
+        }
+
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
         dialog.setTitle("Edit Contact");
@@ -87,12 +91,11 @@ public class Controller {
             dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
             DialogController editController = fxmlLoader.getController();
-            Contact editedContact = contactsTable.getSelectionModel().getSelectedItem();
-            editController.setContact(editedContact);
+            editController.editContact(editedContact);
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                editController.editResults(editedContact);
+                editController.updateContact(editedContact);
                 data.saveContacts();
                 contactsTable.getSelectionModel().select(editedContact);
             }
