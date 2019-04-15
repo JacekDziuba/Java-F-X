@@ -11,8 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("mainWindow.fxml"));
-        primaryStage.setTitle("Contacts");
-        primaryStage.setScene(new Scene(root, 600, 500));
+        primaryStage.setTitle("Phone Book");
+        primaryStage.setScene(new Scene(root, 850, 500));
         primaryStage.show();
 
     }

@@ -21,6 +21,12 @@ public class DialogController {
     @FXML
     private TextArea notesArea;
 
+    private Contact contact;
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
     // == methods ==
 
     public Contact processResults() {
@@ -33,4 +39,10 @@ public class DialogController {
         return contact;
     }
 
+    public void editResults(Contact contact) {
+        contact.setFirstName(firstNameField.getText());
+        contact.setLastName(lastNameField.getText());
+        contact.setPhoneNumber(phoneNumberField.getText());
+        contact.setNotes(notesArea.getText());
+    }
 }

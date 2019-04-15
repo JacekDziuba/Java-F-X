@@ -1,7 +1,9 @@
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:controller="ContactsProject.Controller"
@@ -13,15 +15,63 @@
     </padding>
 
     <top>
-        <MenuBar>
-            <Menu text="File">
-                <MenuItem text="New Contact" onAction="#addNewContactDialog"/>
-                <MenuItem text="Edit Contact"/>
-                <MenuItem text="Delete Contact"/>
-                <SeparatorMenuItem/>
-                <MenuItem text="Exit" onAction="#handleExit"/>
-            </Menu>
-        </MenuBar>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New Contact" onAction="#addNewContactDialog"/>
+                    <MenuItem text="Edit Contact" onAction="#editContactDialog"/>
+                    <MenuItem text="Delete Contact" onAction="#handleDeleteContact"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox>
+                   <Button onAction="#addNewContactDialog">
+                       <graphic>
+                           <ImageView>
+                               <Image url="@/toolbarButtonGraphics/general/New24.gif"/>
+                           </ImageView>
+                       </graphic>
+                       <tooltip>
+                           <Tooltip text="Add new contact"/>
+                       </tooltip>
+                   </Button>
+                    <Button onAction="#editContactDialog">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/Edit24.gif"/>
+                            </ImageView>
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Edit contact"/>
+                        </tooltip>
+                    </Button>
+                    <Button onAction="#handleDeleteContact">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/Delete24.gif"/>
+                            </ImageView>
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Delete contact"/>
+                        </tooltip>
+                    </Button>
+                    <Separator/>
+                    <Button onAction="#handleExit">
+                        <graphic>
+                            <ImageView>
+                                <Image url="@/toolbarButtonGraphics/general/Stop24.gif"/>
+                            </ImageView>
+                        </graphic>
+                        <tooltip>
+                            <Tooltip text="Exit program"/>
+                        </tooltip>
+                    </Button>
+                </HBox>
+            </ToolBar>
+        </VBox>
+
     </top>
 
     <center>
@@ -44,7 +94,7 @@
                             <PropertyValueFactory property="phoneNumber" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn text="Notes" prefWidth="150">
+                    <TableColumn text="Notes" prefWidth="350">
                         <cellValueFactory>
                             <PropertyValueFactory property="notes" />
                         </cellValueFactory>
