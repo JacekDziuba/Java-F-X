@@ -29,18 +29,20 @@
                             </ImageView>
                         </graphic>
                     </Button>
+                    <Separator/>
                     <ToggleButton fx:id="filterToggleButton" text="Today's Items" onAction="#handleFilterButton">
                         <tooltip>
                             <Tooltip text="Button Down: Show Today's items only. Button Up: Show all items"/>
                         </tooltip>
                     </ToggleButton>
+                    <Separator/>
                     <Button onAction="#handleExit">
                         <tooltip>
                             <Tooltip text="Exit"/>
                         </tooltip>
                         <graphic>
                             <ImageView>
-                                <Image url="@/toolbarButtonGraphics/media/Pause24.gif"/>
+                                <Image url="@/toolbarButtonGraphics/general/Stop24.gif"/>
                             </ImageView>
                         </graphic>
                     </Button>

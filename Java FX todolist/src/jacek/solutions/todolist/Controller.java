@@ -193,12 +193,13 @@ public class Controller {
 
             DialogController editController = fxmlLoader.getController();
             ToDoItem item = toDoItemsView.getSelectionModel().getSelectedItem();
-            editController.setItem(item);
+            editController.editItem(item);
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                editController.processEditResults(item);
-                toDoItemsView.getSelectionModel().selectFirst();
+                editController.updateItem(item);
+                toDoItemsView.getSelectionModel().select(item);
+                toDoItemsView.refresh();
             }
 
         } catch (IOException e) {
@@ -217,13 +218,6 @@ public class Controller {
                 deleteItem(selectedItem);
             }
         }
-    }
-
-    @FXML
-    public void handleClickListView() {
-        ToDoItem item = toDoItemsView.getSelectionModel().getSelectedItem();
-        itemDetailsTextArea.setText(item.getDetails());
-        deadlineLabel.setText(item.getDeadline().toString());
     }
 
     private void deleteItem(ToDoItem item) {

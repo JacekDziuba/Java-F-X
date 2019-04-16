@@ -44,19 +44,15 @@ public class DialogController {
         return newItem;
     }
 
-    public void processEditResults(ToDoItem item) {
-        item.setShortDescription(shortDescriptionField.getText());
-        item.setDetails(detailsArea.getText());
-        item.setDeadline(deadlinePicker.getValue());
-    }
-
     public void editItem(ToDoItem item) {
-        item.setShortDescription(shortDescriptionField.getText());
-        item.setDetails(detailsArea.getText());
-        item.setDeadline(deadlinePicker.getValue());
+        shortDescriptionField.setText(item.getShortDescription());
+        detailsArea.setText(item.getDetails());
+        deadlinePicker.setValue(item.getDeadline());
     }
 
     public void updateItem(ToDoItem item) {
-
+        item.setShortDescription(shortDescriptionField.getText());
+        item.setDetails(detailsArea.getText());
+        item.setDeadline(deadlinePicker.getValue());
     }
 }
