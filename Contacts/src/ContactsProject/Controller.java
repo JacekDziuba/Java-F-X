@@ -3,10 +3,12 @@ package ContactsProject;
 import ContactsProject.DataModel.Contact;
 import ContactsProject.DataModel.ContactData;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -117,5 +119,29 @@ public class Controller {
     @FXML
     public void handleExit() {
         Platform.exit();
+    }
+
+    @FXML
+    public void deleteContact() {
+        Contact selectedContact = contactsTable.getSelectionModel().getSelectedItem();
+        if (selectedContact == null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("No contact selected");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select contact to be deleted");
+            alert.showAndWait();
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete contact");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to delete " + selectedContact.getFirstName() + " " + selectedContact.getLastName());
+
+        Optional<ButtonType> results = alert.showAndWait();
+        if (results.isPresent() && results.get() == ButtonType.OK) {
+            data.deleteContact(selectedContact);
+            data.saveContacts();
+        }
     }
 }

@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <BorderPane fx:controller="ContactsProject.Controller"
             xmlns:fx="http://javafx.com/fxml"
             fx:id="mainBorderPane">
@@ -20,7 +19,7 @@
                 <Menu text="File">
                     <MenuItem text="New Contact" onAction="#addNewContactDialog"/>
                     <MenuItem text="Edit Contact" onAction="#editContactDialog"/>
-                    <MenuItem text="Delete Contact" onAction="#handleDeleteContact"/>
+                    <MenuItem text="Delete Contact" onAction="#deleteContact"/>
                     <SeparatorMenuItem/>
                     <MenuItem text="Exit" onAction="#handleExit"/>
                 </Menu>
@@ -47,7 +46,7 @@
                             <Tooltip text="Edit contact"/>
                         </tooltip>
                     </Button>
-                    <Button onAction="#handleDeleteContact">
+                    <Button onAction="#deleteContact">
                         <graphic>
                             <ImageView>
                                 <Image url="@/toolbarButtonGraphics/general/Delete24.gif"/>
@@ -78,6 +77,9 @@
         <VBox>
             <Label style="-fx-font: NORMAL 20 Tahoma;" text="Address Book"/>
             <TableView fx:id="contactsTable" prefWidth="150">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
                 <columns>
                     <TableColumn text="First Name" prefWidth="150">
                         <cellValueFactory>
