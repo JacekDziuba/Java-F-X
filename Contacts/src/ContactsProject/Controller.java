@@ -110,18 +110,6 @@ public class Controller {
     }
 
     @FXML
-    public void handleDeleteContact() {
-        Contact contact = contactsTable.getSelectionModel().getSelectedItem();
-        data.deleteContact(contact);
-        data.saveContacts();
-    }
-
-    @FXML
-    public void handleExit() {
-        Platform.exit();
-    }
-
-    @FXML
     public void deleteContact() {
         Contact selectedContact = contactsTable.getSelectionModel().getSelectedItem();
         if (selectedContact == null) {
@@ -143,5 +131,10 @@ public class Controller {
             data.deleteContact(selectedContact);
             data.saveContacts();
         }
+    }
+
+    @FXML
+    public void handleExit() {
+        Platform.exit();
     }
 }

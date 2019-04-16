@@ -49,4 +49,14 @@ public class DialogController {
         item.setDetails(detailsArea.getText());
         item.setDeadline(deadlinePicker.getValue());
     }
+
+    public void editItem(ToDoItem item) {
+        item.setShortDescription(shortDescriptionField.getText());
+        item.setDetails(detailsArea.getText());
+        item.setDeadline(deadlinePicker.getValue());
+    }
+
+    public void updateItem(ToDoItem item) {
+
+    }
 }
